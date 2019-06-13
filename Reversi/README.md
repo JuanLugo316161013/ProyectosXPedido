@@ -19,11 +19,11 @@ El objetivo del juego para cada jugador es acabar la partida con un número de f
 -------------------------
 ### Inicio del juego
 
-* `Los jugadores han de decidir antes que nada el color con el que va a competir cada uno de ellos.`
+* Los jugadores han de decidir antes que nada el color con el que va a competir cada uno de ellos.
 
-* `Seguidamente se situarán cuatro fichas (dos de cada color) en las cuatro casillas centrales del tablero, de forma que cada pareja de fichas iguales forme una diagonal entre sí.`
+* Seguidamente se situarán cuatro fichas (dos de cada color) en las cuatro casillas centrales del tablero, de forma que cada pareja de fichas iguales forme una diagonal entre sí.
 
-* `Realiza el primer movimiento el jugador que juegue con negras, alternando el turno entre uno y otro para los movimientos sucesivos.`
+* Realiza el primer movimiento el jugador que juegue con negras, alternando el turno entre uno y otro para los movimientos sucesivos.
 
 ### Movimientos
 
@@ -31,11 +31,11 @@ Los movimientos consisten en incorporar fichas al tablero a razón de una por tu
 
 Las incorporaciones deberán hacerse en orden a las siguientes normas:
 
-* `Sólo podrá incorporarse una ficha flanquendo a una o varias fichas contrarias.`
-* `Por flanquear se entiende el hecho de colocar la nueva ficha en un extremo de una hilera de fichas del color del contrario (una o más fichas) en cuyo extremo opuesto hay una ficha del color de la que se incorpora, sin que existan casillas libres entre ninguna de ellas. Esta hilera puede ser indistintamente vertical, horizontal o diagonal. De este modo, las fichas del contrincante quedan encerradas entre una que ya estaba en el tablero y la nueva ficha.`
-* `Cada vez que un jugador incorpora una ficha, y por lo tanto encierra a otras del contrario, debe dar la vuelta a las fichas encerradas convirtiéndolas así en propias.`
-* `Si en una sola incorporación se provocase esta situación de flanqueo en más de una línea, se voltearán todas las fichas contrarias que estuvieran implicadas en cada un de los flanqueos.`
-* `Si no fuera posible para un jugador encerrar a ninguna ficha, deberá pasar en su turno, volviendo el mismo a su oponente.`
+* Sólo podrá incorporarse una ficha flanquendo a una o varias fichas contrarias.
+* Por flanquear se entiende el hecho de colocar la nueva ficha en un extremo de una hilera de fichas del color del contrario (una o más fichas) en cuyo extremo opuesto hay una ficha del color de la que se incorpora, sin que existan casillas libres entre ninguna de ellas. Esta hilera puede ser indistintamente vertical, horizontal o diagonal. De este modo, las fichas del contrincante quedan encerradas entre una que ya estaba en el tablero y la nueva ficha.
+* Cada vez que un jugador incorpora una ficha, y por lo tanto encierra a otras del contrario, debe dar la vuelta a las fichas encerradas convirtiéndolas así en propias.
+* Si en una sola incorporación se provocase esta situación de flanqueo en más de una línea, se voltearán todas las fichas contrarias que estuvieran implicadas en cada un de los flanqueos.`
+* Si no fuera posible para un jugador encerrar a ninguna ficha, deberá pasar en su turno, volviendo el mismo a su oponente.
 
 ### Final
 
