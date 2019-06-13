@@ -1,0 +1,17 @@
+Alumno = [Nombre] [Telefono] [Direccion] [#Materias]
+
+1.-ADRIANA CAROLINA HERNANDEZ MONTERROZA 5511644153 Av. Paseo de la Reforma y Gandhi S/N, Col. Chapultepec Polanco #5 3
+2.-PAOLA ANDREA CORREA LARIOS 5564329923 Jaime Torres Bodet 176, Colonia Santa María la Ribera #6
+3.-FABIAN ANDRES FINO ANDRADE 5501248657 Circuito Cultural de Ciudad Universitaria S/N, Ciudad Universitaria #4
+4.-JORGE ESTEBAN REY BOTERO 5599687945 Pasaje Cultural Guatemala 18 – Donceles 97, Colonia Centro #5
+5.-CAMILO VILLAMIZAR ARISTIZABAL 5527899767 Paseo de la Reforma y Gandhi S/N, Bosque de Chapultepec #5
+6.-MARÍA ANGÉLICA BELTRÁN CASTILLO 558417621 Museo 150, San Pablo Tepetlapa  #6
+7.-OSCAR DAVID COLMENARES BARBUDO 5566616178 Ingeniero Militares 77, Colonia Lomas de Sotelo  #3
+8.-ESTEWIL CARLOS QUESADA CALDERÍN 5543159116 Blvd. Cervantes Saavedra esquina Presa Falcón, Colonia Ampliación Granada  #5
+9.-GLORIA PATRICIA MENDOZA ALVEAR 5534633302 Tacuba 8, Centro Histórico #4
+10.-DIEGO ALEJANDRO FORERO PEÑA 5546935037 Av Altavista esquina Diego Rivera, Colonia San Ángel Inn  #5
+11.-HUGO ANDRÉS CAMARGO VARGAS 5526021627 Isabel La Católica 26, Col. Centro  #7
+12.-BRIGITE POLANCO RUIZ 5563763090 - General Francisco Ramírez 12-12, Col. Ampliación Daniel Garza  #5
+13.-INGRID ROCIO GUERRERO PENAGOS 5532125563 Plaza de la Ciudadela 2, Centro Histórico  #4
+14.-LINA MARÍA ZÚÑIGA RAMÍREZ 5539595010 Plaza Garibaldi S/N, Colonia Centro  #6
+15.-NATALIA PUENTES PERDOMO 5574788508 Alberto Herrera esquina Hidalgo y Aquiles Serdán, Colonia Aragón La Villa  #2
