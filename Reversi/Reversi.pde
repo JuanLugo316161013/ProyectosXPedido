@@ -483,24 +483,22 @@ class Tablero {
 } /* Fin Clase Tablero */
 Tablero tablero = new Tablero(8);
 void setup() {
-	/* Configuraciones iniciales */
-	background(114, 255, 224);
-	size(512, 600);
+/* Configuraciones iniciales */
+background(114, 255, 224);
+size(512, 600);
 }
 void draw() {
-	/* Dibuja el tablero */
-	tablero.display();
+/* Dibuja el tablero */
+tablero.display();
 }
 void mouseClicked() {
-	// Falso: negro True: Verdadero
-	int i = mouseY/(512/tablero.dimension);
-	int j = mouseX/(width/tablero.dimension);
-	if(tablero.esTiradaValida(i,j)){
-		tablero.tira(i,j);
-    tablero.display();
-		// Cambiamos de turno.
-		tablero.turno = !tablero.turno;
-		tablero.buscaTiradas();
-	}
-	tablero.cuenta_fichas();
+// Falso: negro True: Verdadero
+int i = mouseY/(512/tablero.dimension);
+int j = mouseX/(width/tablero.dimension);
+if(tablero.esTiradaValida(i,j)){
+tablero.tira(i,j);
+// Cambiamos de turno.
+tablero.turno = !tablero.turno;
+tablero.buscaTiradas();
+}
 }
