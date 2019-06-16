@@ -108,38 +108,15 @@ class Tablero {
 
 	// Dada una fila y una columna, tira esa ficha.
 	void tira(int fila, int columna) {
-		if (hayJugadaAbajo(fila,columna)) {
-			cambiaFichasAbajo(fila,columna);
-			println("hayJugadaAbajo");
-		}
-		if (hayJugadaArriba(fila,columna)) {
-			cambiaFichasArriba(fila,columna);
-			println("hayJugadaArriba");
-		}
-		if (hayJugadaDerecha(fila,columna)) {
-			cambiaFichasDerecha(fila,columna);
-			println("hayJugadaDerecha");
-		}
-		if (hayJugadaIzquierda(fila,columna)){
-			cambiaFichasIzquierda(fila,columna);
-			println("hayJugadaIzquierda");
-		}
-		if (hayDiagonalSuperiorDer(fila,columna)){
-			cambiaFichasDiagonalSupDer(fila,columna);
-			println("hayDiagonalSuperiorDer");
-		}
-		if (hayDiagonalSuperiorIzq(fila,columna)){
-			cambiaFichasDiagonalSupIzq(fila,columna);
-			println("hayDiagonalSuperiorDer");
-		}
-		if (hayDiagonalInferiorDer(fila,columna)){
-			cambiaFichasDiagonalInfDer(fila,columna);
-			println("hayDiagonalInferiorDer");
-		}
-		if (hayDiagonalInferiorIzq(fila,columna)){
-			cambiaFichasDiagonalInfIzq(fila,columna);
-			println("hayDiagonalInferiorIzq");
-		}
+		cambiaFichasAbajo(fila,columna);
+		cambiaFichasArriba(fila,columna);
+		cambiaFichasDerecha(fila,columna);
+		cambiaFichasIzquierda(fila,columna);
+		cambiaFichasDiagonalSupDer(fila,columna);
+		cambiaFichasDiagonalSupIzq(fila,columna);
+		cambiaFichasDiagonalInfDer(fila,columna);
+		cambiaFichasDiagonalInfIzq(fila,columna);
+		tablero[fila][columna] = turno ? 1 : -1;
 	}
 
 	void cambiaFichasAbajo(int fila,int columna){
@@ -149,8 +126,8 @@ class Tablero {
 			ficha = 1;
 		else
 			ficha = -1;
-		//if (hayJugadaAbajo(fila,columna))
-			for (int i = fila; i >= 0; i--)
+		if (hayJugadaAbajo(fila,columna))
+			for (int i = fila-1; i >= 0; i--)
 				if (tablero[i][columna] == ficha)
 					return;
 				else
@@ -164,8 +141,8 @@ class Tablero {
 			ficha = 1;
 		else
 			ficha = -1;
-		//if (hayJugadaArriba(fila,columna))
-			for (int i = fila; i < dimension; i++)
+		if (hayJugadaArriba(fila,columna))
+			for (int i = fila+1; i < dimension; i++)
 				if (tablero[i][columna] == ficha)
 					return;
 				else
@@ -179,8 +156,8 @@ class Tablero {
 			ficha = 1;
 		else
 			ficha = -1;
-		//if (hayJugadaDerecha(fila,columna))
-			for (int i = columna; i >= 0; i--)
+		if (hayJugadaDerecha(fila,columna))
+			for (int i = columna-1; i >= 0; i--)
 				if (tablero[fila][i] == ficha)
 					return;
 				else
@@ -194,8 +171,8 @@ class Tablero {
 			ficha = 1;
 		else
 			ficha = -1;
-		//if (hayJugadaIzquierda(fila,columna))
-			for (int i = columna; i < dimension; i++)
+		if (hayJugadaIzquierda(fila,columna))
+			for (int i = columna+1; i < dimension; i++)
 				if (tablero[fila][i] == ficha)
 					return;
 				else
@@ -209,16 +186,12 @@ class Tablero {
 			ficha = 1;
 		else
 			ficha = -1;
-		//if (hayDiagonalSuperiorDer(fila,columna)) {
-			for (int i = columna; i >= 0; i--) {
-				if (tablero[fila][i] == ficha) {
+		if (hayDiagonalSuperiorDer(fila++,columna))
+			for (int i = columna-1; i >= 0 && fila < dimension; i--,fila++)
+				if (tablero[fila][i] == ficha)
 					return;
-				} else {
+				 else 
 					tablero[fila][i] = ficha;
-				}
-				fila++;
-			}
-		//}
 	}
 
 	void cambiaFichasDiagonalSupIzq(int fila,int columna){
@@ -228,16 +201,12 @@ class Tablero {
 			ficha = 1;
 		else
 			ficha = -1;
-		//if (hayDiagonalSuperiorIzq(fila,columna)) {
-			for (int i = columna; i < dimension; i++) {
-				if (tablero[fila][i] == ficha) {
+		if (hayDiagonalSuperiorIzq(fila++,columna))
+			for (int i = columna+1; i < dimension && fila < dimension; i++, fila++)
+				if (tablero[fila][i] == ficha)
 					return;
-				} else {
+				else
 					tablero[fila][i] = ficha;
-				}
-				fila++;
-			}
-		//}
 	}
 
 	void cambiaFichasDiagonalInfDer(int fila,int columna){
@@ -247,16 +216,12 @@ class Tablero {
 			ficha = 1;
 		else
 			ficha = -1;
-		//if (hayDiagonalInferiorDer(fila,columna)) {
-			for (int i = columna; i >= 0; i--) {
-				if (tablero[fila][i] == ficha) {
+		if (hayDiagonalInferiorDer(fila--,columna)) 
+			for (int i = columna-1; i >= 0 && fila >= 0; i--,fila--)
+				if (tablero[fila][i] == ficha)
 					return;
-				} else {
-					tablero[fila][i] = ficha;
-				}
-				fila--;
-			}
-		//}
+				else
+					tablero[fila][i] = ficha;			
 	}
 
 	void cambiaFichasDiagonalInfIzq(int fila,int columna){
@@ -266,27 +231,18 @@ class Tablero {
 			ficha = 1;
 		else
 			ficha = -1;
-		//if (hayDiagonalInferiorIzq(fila,columna)) {
-			for (int i = columna; i < dimension; i++) {
-				if (tablero[fila][i] == ficha) {
+		if (hayDiagonalInferiorIzq(fila--,columna))
+			for (int i = columna+1; i < dimension & fila >= 0; i++,fila--)
+				if (tablero[fila][i] == ficha)
 					return;
-				} else {
+				else
 					tablero[fila][i] = ficha;
-				}
-				fila--;
-			}
-		//}
 	}
 	// Dada una fila y una columna, determina si ahÃ- es un tiro vÃ¡lido
 	// para el turno que va a tirar.
 	boolean esTiradaValida(int fila, int columna) {
-		int ficha;
-		if (turno)
-			ficha = 1;
-		else
-			ficha = -1;
-		if (tablero[fila][columna] == ficha)
-			return false;
+		if (fila >= dimension || columna >= dimension || tablero[fila][columna] == -1 || tablero[fila][columna] == 1)
+        return false;
 		boolean existeTirada = false;
 		existeTirada = existeTirada || hayDiagonalInferiorIzq(fila,columna);
 		existeTirada = existeTirada || hayDiagonalInferiorDer(fila,columna);
@@ -301,8 +257,24 @@ class Tablero {
 	/*Regresa true si el juego aun no termina. False en otro caso*/
 	boolean estaTerminado() {
 		// Les toca
-		return false;
+		return tiradas() == 0;
 	}
+
+	/*Regresa el total de tiradas posibles que tienen los jugadores*/
+    int tiradas () {
+    	int tiradas = 0;
+    	for (int i = 0; i < dimension; i++)
+    		for (int j = 0; j < dimension; j++)
+    			if (tablero[i][j] == 2)
+    				tiradas++;
+    	turno = !turno;
+    	for (int i = 0; i < dimension; i++)
+    		for (int j = 0; j < dimension; j++)
+    			if (tablero[i][j] == 2)
+    				tiradas++;
+    	turno = !turno;
+    	return tiradas;
+  	}
 	boolean hayDiagonalInferiorIzq (int fila, int columna) {
 		// Les toca
 		int ficha, contraria, fichas = 0;
@@ -524,7 +496,6 @@ void mouseClicked() {
 // Falso: negro True: Verdadero
 int i = mouseY/(512/tablero.dimension);
 int j = mouseX/(width/tablero.dimension);
-println("fila: "+ i + " columna: "+ j);
 if(tablero.esTiradaValida(i,j)){
   tablero.tira(i,j);
 // Cambiamos de turno.
