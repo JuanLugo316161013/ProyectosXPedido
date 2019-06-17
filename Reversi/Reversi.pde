@@ -260,6 +260,28 @@ class Tablero {
 		return tiradas() == 0;
 	}
 
+	void muestraGanador() {
+		fill(114, 255, 224);
+		stroke(20);
+		rect(100,100,300,300);
+		if (negras == blancas) {
+			textSize(50);
+			fill(20);
+			text("Empate.",160, 210, 290, 300);
+			return;
+		}
+		textSize(50);
+		fill(20);
+		text("¡Ganador!",130, 110, 290, 210);
+		stroke(20);
+		ellipseMode(CENTER);
+		if (negras > blancas)
+			fill(20);
+		 else
+			fill(255);
+		ellipse(250,275,150,150);
+	}
+
 	/*Regresa el total de tiradas posibles que tienen los jugadores*/
     int tiradas () {
     	int tiradas = 0;
@@ -481,26 +503,29 @@ class Tablero {
 		}
 	}
 } /* Fin Clase Tablero */
-Tablero tablero = new Tablero(8);
+Tablero tablero = new Tablero(8); 
 
 void setup() {
-/* Configuraciones iniciales */
-background(114, 255, 224);
-size(512, 600);
+	/* Configuraciones iniciales */
+	size(512, 600);
+	background(114, 255, 224);
 }
 void draw() {
-/* Dibuja el tablero */
-tablero.display();
+	/* Dibuja el tablero */
+	tablero.display();
+	if (tablero.estaTerminado()) {
+		tablero.muestraGanador();
+	}
 }
 void mouseClicked() {
 // Falso: negro True: Verdadero
-int i = mouseY/(512/tablero.dimension);
-int j = mouseX/(width/tablero.dimension);
-if(tablero.esTiradaValida(i,j)){
-  tablero.tira(i,j);
-// Cambiamos de turno.
-tablero.turno = !tablero.turno;
-tablero.buscaTiradas();
-}
-tablero.cuenta_fichas();
+	int i = mouseY/(512/tablero.dimension);
+	int j = mouseX/(width/tablero.dimension);
+	if(tablero.esTiradaValida(i,j)){
+		tablero.tira(i,j);
+		// Cambiamos de turno.
+		tablero.turno = !tablero.turno;
+		tablero.buscaTiradas();
+		tablero.cuenta_fichas();
+	}
 }
