@@ -257,8 +257,20 @@ class Tablero {
 	/*Regresa true si el juego aun no termina. False en otro caso*/
 	boolean estaTerminado() {
 		// Les toca
-		return tiradas() == 0;
-	}
+		int tiradas = 0;
+		for (int i = 0; i < dimension; i++)
+    		for (int j = 0; j < dimension; j++)
+    			if (esTiradaValida(i,j))
+    				tiradas++;
+    	turno = !turno;
+    	for (int i = 0; i < dimension; i++)
+    		for (int j = 0; j < dimension; j++)
+    			if (esTiradaValida(i,j))
+    				tiradas++;
+    	turno = !turno;
+    	println(tiradas);
+    	return tiradas == 0;
+    }
 
 	void muestraGanador() {
 		fill(114, 255, 224);
@@ -282,19 +294,13 @@ class Tablero {
 		ellipse(250,275,150,150);
 	}
 
-	/*Regresa el total de tiradas posibles que tienen los jugadores*/
+	/*Regresa el total de tiradas posibles del jugador en turno*/
     int tiradas () {
     	int tiradas = 0;
     	for (int i = 0; i < dimension; i++)
     		for (int j = 0; j < dimension; j++)
     			if (tablero[i][j] == 2)
     				tiradas++;
-    	turno = !turno;
-    	for (int i = 0; i < dimension; i++)
-    		for (int j = 0; j < dimension; j++)
-    			if (tablero[i][j] == 2)
-    				tiradas++;
-    	turno = !turno;
     	return tiradas;
   	}
 	boolean hayDiagonalInferiorIzq (int fila, int columna) {
@@ -512,9 +518,26 @@ void setup() {
 }
 void draw() {
 	/* Dibuja el tablero */
+	background(114, 255, 224);
+	stroke(0);
 	tablero.display();
 	if (tablero.estaTerminado()) {
 		tablero.muestraGanador();
+	} else if (tablero.tiradas() == 0) {
+		String ficha;
+		if (tablero.turno)
+			ficha = "Blancas";
+		else
+			ficha = "Negras";
+		fill(114, 255, 224);
+		stroke(20);
+		rect(100,100,300,300);
+		textSize(45);
+		fill(20);
+		text(ficha + " sin movimientos",110, 180, 290, 390);
+		if (mousePressed)
+			tablero.turno = !tablero.turno;
+		tablero.buscaTiradas();
 	}
 }
 void mouseClicked() {
