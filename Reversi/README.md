@@ -47,4 +47,4 @@ Puede darse el caso de empate si el número de fichas de cada color al acabar la
 
 ### Uso: Reversi
 -----------------
-Se abre el archivo Reversi.pde con [Processing](https://processing.org/download/), y se ejecuta dentro dentro de la aplicación.
+Se abre el archivo [Reversi.pde](https://github.com/JuanLugoN/ProyectosXPedido/blob/master/Reversi/Reversi.pde) con [Processing](https://processing.org/download/), y se ejecuta dentro dentro de la aplicación.
