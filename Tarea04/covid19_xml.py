@@ -1,6 +1,23 @@
 import json
 import xml.etree.ElementTree as ET
-import re
+import pprint
+
+def indent(elem, level=0):
+    i = "\n" + level*"  "
+    j = "\n" + (level-1)*"  "
+    if len(elem):
+        if not elem.text or not elem.text.strip():
+            elem.text = i + "  "
+        if not elem.tail or not elem.tail.strip():
+            elem.tail = i
+        for subelem in elem:
+            indent(subelem, level+1)
+        if not elem.tail or not elem.tail.strip():
+            elem.tail = j
+    else:
+        if level and (not elem.tail or not elem.tail.strip()):
+            elem.tail = j
+    return elem      
 
 def xml_continents(root, data):
 	continents_branches = {}
@@ -36,9 +53,11 @@ def xml_records(countries_branches):
 if __name__ == '__main__':
 	with open('covidout.json', 'r') as jfile:
 		data = json.load(jfile)
+		pprint.pprint(jfile)
 		root = ET.Element('continents')
 		continents_branches = xml_continents(root, data)
 		countries_branches = xml_countries(continents_branches)
 		xml_records(countries_branches)
+		root = indent(root)
 		tree = ET.ElementTree(root)
-		tree.write('covid19.xml', encoding = 'unicode' ,xml_declaration = True)
+		tree.write('covid19.xml', encoding = 'unicode', xml_declaration = True)

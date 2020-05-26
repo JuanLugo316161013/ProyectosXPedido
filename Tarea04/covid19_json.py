@@ -46,7 +46,7 @@ class covid19_geography(object):
 			for _country in covid19_json[continent]:
 				covid19_json[continent][_country] = covid19_json[continent][_country].to_dict()	
 		with open(filename, 'w') as outfile:
-			json.dump(self.continents, outfile)
+			json.dump(self.continents, outfile, indent = 4)
 
 covid19_geography = covid19_geography('covid-19.csv')
 covid19_geography.to_json()
