@@ -13,7 +13,7 @@ class country(object):
 
 	def add_record(self, _dict):
 		self.records.append({'dateRep':  _dict['dateRep'],'day': _dict['day'], 'month': _dict['month'], 
-					'		year': _dict['year'], 'cases': _dict['cases'], 'deaths': _dict['deaths']})
+							'year': _dict['year'], 'cases': _dict['cases'], 'deaths': _dict['deaths']})
 
 	def to_dict(self):
 		return dict({'geoId': self.geoId, 'countryterritoryCode': self.countryterritoryCode,
@@ -33,7 +33,7 @@ class covid19_geography(object):
 			continent = _dict['continentExp']
 			_country = _dict['countriesAndTerritories']
 			if continent in self.continents:
-				if country in self.continents[continent]:
+				if _country in self.continents[continent]:
 					self.continents[continent][_country].add_record(_dict)
 				else:
 					self.continents[continent][_country] = country(_dict)
